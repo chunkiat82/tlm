@@ -1,0 +1,379 @@
+html * {
+    margin: 0;
+    /*padding: 0; SELECT NOT DISPLAYED CORRECTLY IN FIREFOX */
+}
+
+/* GENERAL */
+
+.spinner {
+    padding: 5px;
+    position: absolute;
+    right: 0;
+}
+
+body {
+    background: #fff;
+    color: #333;
+    font: 11px verdana, arial, helvetica, sans-serif;
+}
+
+#grailsLogo {
+	padding:20px;
+	float: left;
+}
+
+a:link, a:visited, a:hover {
+    color: #666;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+h1 {
+    color: #48802c;
+    font-weight: normal;
+    font-size: 16px;
+    margin: .8em 0 .3em 0;
+    background: transparent url(../images/tlm/logo.png) 5px 50% no-repeat;
+    padding-left: 120px;
+    height: 100px;
+    vertical-align: middle;
+}
+
+ul {
+    padding-left: 15px;
+}
+
+input, select, textarea {
+    background-color: #fcfcfc;
+    border: 1px solid #ccc;
+    font: 11px verdana, arial, helvetica, sans-serif;
+    margin: 2px 0;
+    padding: 2px 4px;
+}
+select {
+   padding: 2px 2px 2px 0;
+}
+textarea {
+	width: 250px;
+	height: 150px;
+	vertical-align: top;
+}
+
+input:focus, select:focus, textarea:focus {
+    border: 1px solid #b2d1ff;
+}
+
+.body {
+    float: left;
+    margin: 0 15px 10px 15px;
+    width: 800px;
+    clear: both;
+}
+
+#login {
+	clear: both;
+}
+
+/* NAVIGATION MENU */
+
+.nav {
+    background: #fff url(../images/skin/shadow.jpg) bottom repeat-x;
+    border: 1px solid #ccc;
+    /*border-style: solid none solid none;*/
+    border-style: none;
+    text-align: right;
+    margin-top: 5px;
+    padding: 10px 12px;
+}
+
+.menuButton {
+    font-size: 10px;
+    padding: 0 5px;
+}
+.menuButton a {
+    color: #333;
+    padding: 10px 6px;
+    padding-left: 30px;
+}
+.menuButton a.public {
+    background: url(../images/icons/homeicon.gif) center left no-repeat;
+    color: #333;
+}
+.menuButton a.home {
+    background: url(../images/webicons/Picture.png) center left no-repeat;
+    color: #333;    
+}
+.menuButton a.login {
+	background: url(../images/webicons/Login.png) center left no-repeat;
+	color: #333;
+}
+.menuButton a.logout {
+    background: url(../images/webicons/Exit.png) center left no-repeat;
+    color: #333;    	
+}
+.menuButton a.list {
+    background: url(../images/webicons/Back.png) center left no-repeat;
+    color: #333;
+}
+.menuButton a.create {
+    /*background: url(../images/skin/database_add.png) center left no-repeat;*/
+    background: url(../images/webicons/Add.png) center left no-repeat;
+    color: #333;
+}
+.menuButton a.info {
+    /*background: url(../images/skin/database_add.png) center left no-repeat;*/
+    background: url(../images/webicons/Info.png) center left no-repeat;
+    color: #333;
+}
+
+/* MESSAGES AND ERRORS */
+
+.message {
+    background: #f3f8fc url(../images/skin/information.png) 8px 50% no-repeat;
+    border: 1px solid #b2d1ff;
+    color: #006dba;
+    margin: 10px 0 5px 0;
+    padding: 5px 5px 5px 30px
+}
+
+div.errors {
+    background: #fff3f3;
+    border: 1px solid red;
+    color: #cc0000;
+    margin: 10px 0 5px 0;
+    padding: 5px 0 5px 0;
+}
+div.errors ul {
+    list-style: none;
+    padding: 0;
+}
+div.errors li {
+	background: url(../images/skin/exclamation.png) 8px 0% no-repeat;
+    line-height: 16px;
+    padding-left: 30px;
+}
+
+td.errors select {
+    border: 1px solid red;
+}
+td.errors input {
+    border: 1px solid red;
+}
+
+/* TABLES */
+
+table {
+    border: 1px solid #ccc;
+    width: 100%
+}
+tr {
+    border: 0;
+}
+td, th {
+    font: 11px verdana, arial, helvetica, sans-serif;
+    line-height: 12px;
+    padding: 5px 6px;
+    text-align: left;
+    vertical-align: top;
+}
+th {
+    background: #fff url(../images/skin/shadow.jpg);
+    color: #666;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 17px;
+    padding: 2px 6px;
+    white-space: nowrap;
+}
+th a:link, th a:visited, th a:hover {
+    color: #333;
+    display: block;
+    font-size: 11px;
+    text-decoration: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+th.asc a, th.desc a {
+    background-position: right;
+    background-repeat: no-repeat;
+}
+th.asc a {
+    background-image: url(../images/skin/sorted_asc.gif);
+}
+th.desc a {
+    background-image: url(../images/skin/sorted_desc.gif);
+}
+
+.odd {
+    background: #f7f7f7;
+}
+.even {
+    background: #fff;
+}
+
+/* LIST */
+
+.list table {
+    border-collapse: collapse;
+}
+.list th, .list td {
+    border-left: 1px solid #ddd;
+}
+.list th:hover, .list tr:hover {
+    background: #b2d1ff;
+}
+
+/* PAGINATION */
+
+.paginateButtons {
+    background: #fff url(../images/skin/shadow.jpg) bottom repeat-x;
+    border: 1px solid #ccc;
+    border-top: 0;
+    color: #666;
+    font-size: 10px;
+    overflow: hidden;
+    padding: 10px 3px;
+}
+.paginateButtons a {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-color: #ccc #aaa #aaa #ccc;
+    color: #666;
+    margin: 0 3px;
+    padding: 2px 6px;
+}
+.paginateButtons span {
+    padding: 2px 3px;
+}
+
+/* DIALOG */
+
+.dialog table {
+    padding: 5px 0;
+}
+
+.prop {
+    padding: 5px;
+}
+.prop .name {
+    text-align: left;
+    width: 15%;
+    white-space: nowrap;
+}
+.prop .value {
+    text-align: left;
+    width: 85%;
+}
+
+.prop .F {
+	text-color: red;
+	font-weight: bold;
+}
+
+.prop .P {
+	text-color: blue;
+	font-weight: bold;
+}
+
+.prop .S {
+	text-color: green;
+	font-weight: bold;
+}
+
+/* ACTION BUTTONS */
+
+.buttons {
+    background: #fff url(../images/skin/shadow.jpg) bottom repeat-x;
+    border: 1px solid #ccc;
+    color: #666;
+    font-size: 10px;
+    margin-top: 5px;
+    overflow: hidden;
+    padding: 0;
+}
+
+.buttons input {
+    background: #fff;
+    border: 0;
+    color: #333;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: 3px;
+    overflow: visible;
+    padding: 2px 6px;
+}
+.buttons input.delete {
+    background: transparent url(../images/skin/database_delete.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+.buttons input.edit {
+    background: transparent url(../images/skin/database_edit.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+.buttons input.save {
+    background: transparent url(../images/skin/database_save.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+.buttons input.email {
+	background: transparent url(../images/webicons/Email.png) 5px 50% no-repeat;
+	padding-left: 28px;
+}
+.buttons input.pause {
+	background: transparent url(../images/webicons/Pause.png) 5px 50% no-repeat;
+	padding-left: 28px;
+}
+.buttons input.resume {
+	background: transparent url(../images/webicons/Play.png) 5px 50% no-repeat;
+	padding-left: 28px;
+}
+.buttons input.home {
+	background: transparent url(../images/icons/homeicon.gif) 5px 50% no-repeat;
+	padding-left: 28px;	
+}
+
+
+
+img {
+	border: 0;
+}
+.sectionheader {
+	font-size: 16px;
+	font-weight: bold;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+
+.list tr td a {
+	padding: 0;
+}
+
+ul.mainmenu {
+	margin-left: 0;
+	padding-left: 0;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	white-space: nowrap;
+}
+
+ul.mainmenu li {
+	margin: 6px;
+	display: inline;
+}
+ul.mainmenu li a {
+	font-size: 24px;
+	font-family: Helvetica;
+	font-weight: bold;
+	padding: 6px 12px;
+}
+
+ul.mainmenu li a:link, ul.mainmenu li a:visited {
+	background-color: #114861;
+	color: white;
+}
+
+ul.mainmenu li a:hover {
+	background-color: #ff9900;
+	color: white;
+}

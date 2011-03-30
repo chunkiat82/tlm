@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>Sandbox page</title>
+  
+  <!-- extjs libraries -->
+  <script type="text/javascript" src="js/ext-base.js"></script>
+  <script type="text/javascript" src="js/ext-all-debug.js"></script>
+  <script type="text/javascript" src="js/ext-basex.js"></script>
+  
+  <style type="text/css">
+    p.error {
+      font-weight: bold;
+      color: red;
+    }
+    
+    p.warning {
+      font-weight: bold;
+      color: orange;
+    }
+    
+    div.console {
+      border: 1px solid black;
+      height: 300px;
+      overflow: scroll;
+      font-family: Verdana;
+      font-size: 8pt;      
+    }
+    
+    span.label {
+      display: inline;
+      width: 200px;
+    }
+    
+    span.input {
+      display: inline;
+    }
+    
+    div.row {
+      display: block;
+    }
+  </style>  
+</head>
+<body>
+<h1>This page is used to explore extJS functionality</h1>
+
+<script type="text/javascript">
+Ext.onReady(function() {
+    var win = new Ext.Window({
+         width:400
+        ,height:300
+        ,shadow:false
+        ,border:false
+        ,draggable:false
+        ,resizable:false
+        ,closable:false
+        ,title:'Borderless Window'
+    });
+    win.show();
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,534 @@
+/* 
+    Document   : main.css
+    Created on : Jan 28, 2010, 11:56:02 AM
+    Author     : raymondho
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+.ext-el-mask {
+	background-color:#000 !important;	
+	opacity: 0.6 !important;
+}
+.homeicon {
+background-image:url(../images/icons/homeicon.gif) !important;
+}
+.subscribeicon {
+background-image:url(../images/icons/addicon.gif) !important;
+}
+.pubsicon {
+background-image:url(../images/icons/pubsicon.gif) !important;
+}
+.supplierIcon {
+background-image:url(../images/icons/suppliericon.gif) !important;
+}
+.moreicon {
+background-image:url(../images/icons/moreicon.gif) !important;
+}
+.bulleticon {
+background-image:url(../images/icons/bulleticon.gif) !important;
+}
+.newsIcon {
+background-image:url(../images/icons/news_subscribe.png) !important;
+}
+.monthIcon {
+background-image:url(../images/icons/month.png) !important;
+}
+.contentsIcon {
+background-image:url(../images/icons/contents.png) !important;
+}
+.rightArrowIcon {
+background-image:url(../images/icons/1rightarrow.png) !important;
+}
+.aboutUsIcon {
+background-image:url(../images/icons/comment.png) !important;
+}
+.contactUsIcon {
+background-image:url(../images/icons/agt_business.png) !important;
+}
+.folderIcon {
+background-image:url(../images/icons/folder.png) !important;
+}
+.documentIcon {
+background-image:url(../images/icons/documents.png) !important;
+}
+.homeIcon {
+background-image:url(../images/icons/home.png) !important;
+}
+.pdfIcon {
+background-image:url(../images/icons/pdf_document.png) !important;
+}
+.bktIcon {
+background-image:url(../images/icons/bkt_icon.png) !important;
+}
+.cttIcon {
+background-image:url(../images/icons/ctt_icon.png) !important;
+}
+.ltIcon {
+background-image:url(../images/icons/lt_icon.png) !important;
+}
+.lstIcon {
+background-image:url(../images/icons/lst_icon.png) !important;
+}
+.seabIcon {
+background-image:url(../images/icons/seab_icon.png) !important;
+}
+.seacIcon {
+background-image:url(../images/icons/seac_icon.png) !important;
+}
+.sstIcon {
+background-image:url(../images/icons/sst_icon.png) !important;
+}
+.folderDocumentsIcon {
+background-image:url(../images/icons/folder_documents.png) !important;
+}
+.rssIcon {
+background-image:url(../images/rss.gif) !important;
+}
+.loginIcon {
+background-image:url(../images/icons/logout.gif) !important;
+}
+.rssIcon {
+background-image:url(../images/icons/rss.png) !important;
+}
+.userIcon {
+background-image:url(../images/icons/user.png) !important;
+}
+.adminIcon {
+background-image:url(../images/icons/admin.png) !important;
+}
+.icon {
+  background-position:center center;
+  background-repeat:no-repeat;
+  border:0 none;
+  height:18px;
+  margin:0;
+  padding:0;
+  vertical-align:top;
+  width:16px;
+}
+
+#publication-centered
+{
+  margin:0 auto;
+  width:60%;
+}
+#x-shortcuts dt img{
+  width:150px;
+}
+
+#x-shortcuts dt a:hover
+{
+  background-color:rgba(14, 32, 59, 0.5);
+
+}
+
+#loading-mask {
+  position: absolute;
+  left:     0;
+  top:      0;
+  width:    100%;
+  height:   100%;
+  z-index:  20000;
+  background-color: white;
+  /*filter:alpha(opacity=60);
+  -moz-opacity:0.6;
+  -khtml-opacity: 0.6; 
+  opacity: 0.6;*/
+  display: block;
+}
+
+#loading {
+  position: absolute;
+  left:     0;
+  top:      0;
+  padding:  2px;
+  z-index:  20001;
+  height:   auto;
+  width:100%;
+  height:100%
+}
+#loading #logo{
+	position: absolute;
+	z-index:  20001;
+	top:20px;
+	left:10%;
+	width:150px;
+	height:100px;
+}
+#loading #moto{
+        position: absolute;
+        z-index:  20002;
+        top:120px;
+        left:10%;
+        /*width:900px;*/
+        height:280px;
+}
+
+#loading #bottomLoadingText{
+        position: absolute;
+        z-index:  20002;
+        top:414px;
+        left:10%;
+        width:80%;
+        height:20px;
+}
+
+#loading #bottomLoading{
+        position: absolute;
+        z-index:  20002;
+        top:425px;
+        left:10%;
+        width:100%;
+}
+#loading #bottomLoading img{
+	width:100px;
+	height:100px;
+	float:left; 
+	margin-right:30px;
+}
+
+#loading .loading-indicator {
+	float:left;
+	z-index:  20003;
+  	background: url(../js/img/loader.gif) no-repeat;
+  	color:      black;
+  	font:       bold 13px tahoma,arial,helvetica;
+  	height:100px;
+  	width:100px;
+  	padding-top:40px;
+  	padding-left:25px;
+}
+
+select{
+	font-size:11px;
+}
+.image-tip{
+	padding:4px;
+	height:98px;
+	white-space:nowrap;
+}
+.image-tip img {
+	margin-right:10px;
+	border:2px solid #083772;
+}
+.image-tip b{
+	color: #083772;
+	display: block;
+	margin-bottom: 4px;
+}
+.image-tip span{
+	display: block;
+	margin-bottom: 5px;
+	margin-left: 5px;
+}
+#images{
+	background: #fff url( ../tree/center-bg.gif ) repeat-x top left;
+	font: 11px Arial, Helvetica, sans-serif;
+}
+#images .thumb{
+	background: #dddddd;
+	padding:3px;
+	cursor:hand;
+}
+#images .thumb img{
+	border:1px solid white;
+	height: 200px;
+	width: 140px;
+}
+#images .thumb-wrap{
+	float: left;
+	margin: 4px;
+	margin-right: 0;
+	padding: 5px;
+	cursor:hand;
+}
+#images .thumb-wrap span{
+	display: block;
+	overflow: hidden;
+	text-align: center;
+}
+#images .x-view-selected .thumb{
+	background:#8db2e3;
+}
+#images .loading-indicator {
+	font-size:8pt;
+	background-image:url(../../resources/images/default/grid/loading.gif);
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left:20px;
+	margin:10px;
+}
+
+#basic-slider{
+	background-image:url(../images/scrollBar.png);
+	background-repeat: no-repeat;
+	height:20px;
+}
+
+#basic-slider div.left{
+	width:50px;
+	float:left;	
+	height:15px;
+	cursor: hand;
+	cursor: pointer;
+}
+
+#basic-slider div.right{
+	width:50px;
+	float:left;	
+	height:15px;
+	text-align:right;
+	cursor: hand;
+	cursor: pointer;
+}
+#basic-slider div.globalCaption{
+	width:200px;
+	float:left;
+	text-align:center;
+}
+
+.x-dd-drag-proxy .multi-proxy .thumb-img{
+	height: 20px;
+	width: 30px;
+	margin:1px;
+}
+.x-dd-drag-proxy .thumb-img{
+	height: 60px;
+	width: 80px;
+}
+.image-node .x-tree-node-icon{
+    margin-bottom:1px;
+    height:15px;
+}
+.album-node .x-tree-node-icon, .album-btn{
+    background-image:url( ../tree/album.gif ) !important;
+}
+#folders{
+	position:relative;
+}
+
+
+
+
+/* for events  ads*/
+#rightMenuDiv .thumb{
+
+	padding:3px;
+}
+#rightMenuDiv .thumb img{
+	border:1px solid white;
+}
+#rightMenuDiv .thumb-wrap{
+	float: left;
+	margin: 4px;
+	margin-right: 0;
+	padding: 5px;
+}
+#rightMenuDiv .thumb-wrap span{
+	display: block;
+	overflow: hidden;
+	text-align: center;
+}
+#rightMenuDiv .x-view-selected .thumb{
+	background:#8db2e3;
+}
+#rightMenuDiv .loading-indicator {
+	font-size:8pt;
+	background-image:url(../../resources/images/default/grid/loading.gif);
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left:20px;
+	margin:10px;
+}
+
+#images{
+	background: #fff url( ../tree/center-bg.gif ) repeat-x top left;
+	font: 11px Arial, Helvetica, sans-serif;
+}
+#bottomDiv .thumb{
+	background: #dddddd;
+	padding:3px;
+	cursor:hand;
+}
+#bottomDiv .thumb img{
+	border:1px solid white;
+}
+#bottomDiv .thumb-wrap{
+	float: left;
+	margin: 4px;
+	margin-right: 0;
+	padding: 5px;
+	cursor:hand;
+}
+#bottomDiv .thumb-wrap span{
+	display: block;
+	overflow: hidden;
+	text-align: center;
+}
+#bottomDiv .x-view-selected .thumb{
+	background:#8db2e3;
+}
+#bottomDiv .loading-indicator {
+	font-size:8pt;
+	background-image:url(../../resources/images/default/grid/loading.gif);
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left:20px;
+	margin:10px;
+}
+#bottomDiv{
+	width:700px;
+	margin:0 auto; 
+	overflow: hidden; 
+	height:200px;
+}
+
+/* 'widths' sub menu */
+#layoutdims {
+	clear:both;	
+	margin:0;
+	padding:6px 15px !important;
+	text-align:right;
+}
+/* column container */
+.colmask {
+	position:relative;	/* This fixes the IE7 overflow hidden bug */
+	clear:both;
+	float:left;
+	width:100%;			/* width of whole page */
+	overflow:hidden;		/* This chops off any overhanging divs */
+}
+/* common column settings */
+.colright,
+.colmid,
+.colleft {
+	float:left;
+	width:100%;			/* width of page */
+	position:relative;
+}
+.col1,
+.col2,
+.col3 {
+	float:left;
+	position:relative;
+	padding:0 0 1em 0;	/* no left and right padding on columns, we just make them narrower instead 
+					only padding top and bottom is included here, make it whatever value you need */
+	overflow:hidden;
+}
+/* 3 Column settings */
+.threecol {	
+}
+.threecol .colmid {
+	right:17%;			/* width of the right column */
+}
+.threecol .colleft {
+	right:70%;			/* width of the middle column */	
+}
+.threecol .col1 {
+	width:64%;			/* width of center column content (column width minus padding on either side) */
+	left:102%;			/* 100% plus left padding of center column */
+}
+.threecol .col2 {
+	width:15%;			/* Width of left column content (column width minus padding on either side) */
+	left:22%;			/* width of (right column) plus (center column left and right padding) plus (left column left padding) */
+}
+.threecol .col3 {
+	width:200px;			/* Width of right column content (column width minus padding on either side) */
+	left:90%;			/* Please make note of the brackets here:
+					(100% - left column width) plus (center column left and right padding) plus (left column left and right padding) plus (right column left padding) */
+}
+/* Footer styles */
+#footer {
+	clear:both;
+	float:left;
+	width:100%;	
+}
+#mainDiv {
+	clear:both;
+	float:left;
+	width:100%;	
+	
+}
+#publicationPanel{
+	margin-top: 50px;
+}
+#publicationLinksDiv{
+	text-align:center;
+	width:100%;
+	height:40px;
+}
+#publicationLinksInnerDiv{
+	margin:0 auto;
+	width:390px;	
+}
+#publicationLinksInnerDiv a{
+	margin-right:5px;
+}
+#footer p {
+	padding:10px;
+	margin:0;
+}
+#leftMenuDiv {	
+	/* margin: 15 0 0 0; */
+	float: left;
+	width:100%;
+	background-image:url(../images/sideBar.png);
+	background-repeat: no-repeat;
+	background-position: left;
+	height:429px;
+}
+
+#leftMenuDiv div {	
+	position:relative;
+	width:150px;
+	height:72px;
+	cursor:hand;
+	cursor:pointer;
+}
+
+#leftMenuDiv div:hover{	
+	position:relative;
+	/*top:10px;
+	left:5px;
+	width:120px;
+	height:52px;
+	background-color:#3C96E6;*/
+	filter:alpha(opacity=20);
+        -moz-opacity:0.2;
+        -khtml-opacity: 0.2; 
+        opacity: 0.2;
+	cursor:hand;
+	cursor:pointer;
+}
+
+#rightMenuDiv {
+	width: 190px;
+	float: left;
+	height: 350px;
+	overflow: hidden;
+}
+
+div.leftMenuItem{
+	display: block;
+	width: 160px;
+	height:68px;		
+    margin-bottom:10px;			
+    cursor:hand;
+    cursor:pointer;
+}
+#returnDiv{
+	width:100px;
+	height:20px;	
+	color:white;
+	text-align:center;
+	visibility:hidden;	
+}
+#returnDiv a{
+	color:white;
+	text-decoration:none;
+}
