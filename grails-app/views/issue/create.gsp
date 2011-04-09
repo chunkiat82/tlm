@@ -1,17 +1,18 @@
 <%@ page import="com.tlm.beans.Issue"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="layout" content="main" />
-<g:set var="entityName" value="${message(code: 'issue.label', default: 'Issue')}" />
-<script type="text/javascript" src="${resource(dir:'js/swfupload', file:'swfupload.js')}"></script>
-<title><g:message code="default.create.label" args="[entityName]" />
-</title>
-<style type="text/css">
-.swfupload {
-	float: left
-}
-</style>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="layout" content="main" />
+  <g:set var="entityName" value="${message(code: 'issue.label', default: 'Issue')}" />
+  <script type="text/javascript" src="${resource(dir:'js/swfupload', file:'swfupload.js')}"></script>
+  <title>
+    <g:message code="default.create.label" args="[entityName]" />
+  </title>
+  <style type="text/css">
+    .swfupload {
+	  float: left ;
+    } 
+  </style>
 </head>
 <body>
 	<div class="body">
