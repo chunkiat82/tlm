@@ -8,7 +8,7 @@ class BootStrap {
 	
 	def init = { servletContext ->      
 		
-		BootstrapUtil.tune(servletContext)
+		//BootstrapUtil.tune(servletContext)
 //		File layoutFolder = ApplicationHolder.application.parentContext.getResource("").file 
 //		def f1= new File('web-app')
 //		def prefix=layoutFolder.absolutePath+'/'

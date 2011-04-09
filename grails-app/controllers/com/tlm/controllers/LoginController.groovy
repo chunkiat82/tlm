@@ -2,7 +2,6 @@ package com.tlm.controllers
 
 import grails.converters.JSON 
 import org.codehaus.groovy.grails.plugins.springsecurity.RedirectUtils
-
 import org.springframework.security.AuthenticationTrustResolverImpl
 import org.springframework.security.DisabledException
 import org.springframework.security.context.SecurityContextHolder as SCH

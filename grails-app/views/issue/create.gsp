@@ -1,96 +1,91 @@
-
-<%@ page import="com.tlm.beans.Issue" %>
+<%@ page import="com.tlm.beans.Issue"%>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'issue.label', default: 'Issue')}" />
-        <script type="text/javascript" src="${resource(dir:'js/swfupload', file:'swfupload.js')}"></script>
-        <title><g:message code="default.create.label" args="[entityName]" /></title>
-        <style type="text/css">
-          .swfupload { float: left }
-        </style>
-    </head>
-    <body>
-        <div class="body">
-            <h1><g:message code="default.create.label" args="[entityName]" /></h1>
-            <g:if test="${flash.message}">
-            <div class="message">${flash.message}</div>
-            </g:if>
-            <g:hasErrors bean="${issueInstance}">
-            <div class="errors">
-                <g:renderErrors bean="${issueInstance}" as="list" />
-            </div>
-            </g:hasErrors>
-	        <div class="nav">
-    	        <span class="menuButton"><a class="home" href="${createLink(uri: '/admin')}">Admin Menu</a></span>
-        	    <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-        	</div>
-            <g:form action="save" method="post" enctype="multipart/form-data" >
-                <div class="dialog">
-                    <table>
-                        <tbody>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="publication"><g:message code="issue.publication.label" default="Publication" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: issueInstance, field: 'publication', 'errors')}">
-                                    <g:select name="publication.id" from="${com.tlm.beans.Publication.list()}" optionKey="id" value="${issueInstance?.publication?.id}"  />
-                                </td>
-                            </tr>
-                            
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="number"><g:message code="issue.number.label" default="Number" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: issueInstance, field: 'number', 'errors')}">
-                                    <g:textField name="number" value="${fieldValue(bean: issueInstance, field: 'number')}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="name"><g:message code="issue.name.label" default="Name" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: issueInstance, field: 'name', 'errors')}">
-                                    <g:textField name="name" value="${issueInstance?.name}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="description"><g:message code="issue.description.label" default="Description" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: issueInstance, field: 'description', 'errors')}">
-                                    <g:textField name="description" value="${issueInstance?.description}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="releaseDate"><g:message code="issue.releaseDate.label" default="Release Date" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: issueInstance, field: 'releaseDate', 'errors')}">
-                                    <g:datePicker name="releaseDate" precision="day" value="${issueInstance?.releaseDate}" noSelection="['': '']" />
-                                </td>
-                            </tr>
-                        
-                        </tbody>
-                    </table>
-                    
-                    <table id="fileUploadTable" border="0">
-                        <tr>
-                          <th class="name">Part #</th>
-                          <th class="name">Name</th>
-                          <th class="name">Description</th>
-                          <th class="name">PDF File</th>
-                          <th class="name">&nbsp;</th>
-                        </tr>
-                      <!-- table content is dynamically populated -->
-                    </table>
-                    
-                    <script type="text/javascript">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="layout" content="main" />
+<g:set var="entityName" value="${message(code: 'issue.label', default: 'Issue')}" />
+<script type="text/javascript" src="${resource(dir:'js/swfupload', file:'swfupload.js')}"></script>
+<title><g:message code="default.create.label" args="[entityName]" />
+</title>
+<style type="text/css">
+.swfupload {
+	float: left
+}
+</style>
+</head>
+<body>
+	<div class="body">
+		<h1>
+			<g:message code="default.create.label" args="[entityName]" />
+		</h1>
+		<g:if test="${flash.message}">
+			<div class="message">
+				${flash.message}
+			</div>
+		</g:if>
+		<g:hasErrors bean="${issueInstance}">
+			<div class="errors">
+				<g:renderErrors bean="${issueInstance}" as="list" />
+			</div>
+		</g:hasErrors>
+		<div class="nav">
+			<span class="menuButton"><a class="home" href="${createLink(uri: '/admin')}">Admin Menu</a>
+			</span> <span class="menuButton"><g:link class="list" action="list">
+					<g:message code="default.list.label" args="[entityName]" />
+				</g:link>
+			</span>
+		</div>
+		<g:form action="save" method="post" enctype="multipart/form-data">
+			<div class="dialog">
+				<table>
+					<tbody>
+
+						<tr class="prop">
+							<td valign="top" class="name"><label for="publication"><g:message code="issue.publication.label" default="Publication" />
+							</label></td>
+							<td valign="top" class="value ${hasErrors(bean: issueInstance, field: 'publication', 'errors')}"><g:select name="publication.id" from="${com.tlm.beans.Publication.list()}" optionKey="id"
+									value="${issueInstance?.publication?.id}" /></td>
+						</tr>
+
+						<tr class="prop">
+							<td valign="top" class="name"><label for="number"><g:message code="issue.number.label" default="Number" />
+							</label></td>
+							<td valign="top" class="value ${hasErrors(bean: issueInstance, field: 'number', 'errors')}"><g:textField name="number" value="${fieldValue(bean: issueInstance, field: 'number')}" /></td>
+						</tr>
+
+						<tr class="prop">
+							<td valign="top" class="name"><label for="name"><g:message code="issue.name.label" default="Name" />
+							</label></td>
+							<td valign="top" class="value ${hasErrors(bean: issueInstance, field: 'name', 'errors')}"><g:textField name="name" value="${issueInstance?.name}" /></td>
+						</tr>
+
+						<tr class="prop">
+							<td valign="top" class="name"><label for="description"><g:message code="issue.description.label" default="Description" />
+							</label></td>
+							<td valign="top" class="value ${hasErrors(bean: issueInstance, field: 'description', 'errors')}"><g:textField name="description" value="${issueInstance?.description}" /></td>
+						</tr>
+
+						<tr class="prop">
+							<td valign="top" class="name"><label for="releaseDate"><g:message code="issue.releaseDate.label" default="Release Date" />
+							</label></td>
+							<td valign="top" class="value ${hasErrors(bean: issueInstance, field: 'releaseDate', 'errors')}"><g:datePicker name="releaseDate" precision="day" value="${issueInstance?.releaseDate}"
+									noSelection="['': '']" /></td>
+						</tr>
+
+					</tbody>
+				</table>
+
+				<table id="fileUploadTable" border="0">
+					<tr>
+						<th class="name">Part #</th>
+						<th class="name">Name</th>
+						<th class="name">Description</th>
+						<th class="name">PDF File</th>
+						<th class="name">&nbsp;</th>
+					</tr>
+				</table>
+
+				<script type="text/javascript">
 
                       String.prototype.trim = function() {
                         try {

@@ -21,8 +21,7 @@
                 <table>
                     <thead>
                         <tr>
-                        
-<!--                            <g:sortableColumn property="id" title="${message(code: 'publication.id.label', default: 'Id')}" />-->
+                      
                         
                             <g:sortableColumn property="mastHead" title="${message(code: 'publication.mastHead.label', default: 'Mast Head')}" />
                                                    

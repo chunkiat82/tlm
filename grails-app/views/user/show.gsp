@@ -57,17 +57,7 @@
 			</td>
 
 		</tr>
-
-		<!--<tr class="prop">
-			<td valign="top" class="name"><g:message
-				code="user.enabled.label" default="Enabled" /></td>
-
-			<td valign="top" class="value"><g:formatBoolean
-				boolean="${userInstance?.enabled}" /></td>
-
-		</tr>
-
-		--><tr class="prop">
+	<tr class="prop">
 			<td valign="top" class="name"><g:message code="user.roles.label"
 				default="Roles" /></td>
 
