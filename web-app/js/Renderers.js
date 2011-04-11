@@ -12,7 +12,7 @@ function defaultDateFormat(value,p,record)
 
 
 function renderOrganization(value, p, record){            
-    return String.format('<a target="_blank" href="{0}">{1}</a>',record.data.website,value);
+    return String.format('<a target="_blank" href="{0}">{1}</a>',record.data.orgLink,value);
 }
 function renderEvent(value, p, record){            
           return String.format('<a target="_blank" href="{0}">{1}</a>',record.data.eventLink,value);
