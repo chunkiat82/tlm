@@ -107,7 +107,9 @@ class ResponseController {
 		def documentInstance = Document.read(params.id)
 		
 		if (documentInstance) {
-			FileUtil.renderFilePDF(response, documentInstance.name, documentInstance.fileData)
+			// FileUtil.renderFilePDF(response, documentInstance.name, documentInstance.fileData)
+			// [280411] Ben: Convert to using cached files instead for PDF
+			ResponseUtil.renderPDFBlob(response, documentInstance.name, documentInstance.fileData, "pdf${documentInstance.id}${documentInstance.dateCreated}")
 			updateCount(documentInstance, params)
 		} else {
 			flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'document.label', default: 'Document'), params.id])}"
