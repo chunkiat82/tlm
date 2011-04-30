@@ -54,7 +54,7 @@
                 </table>
             </div>
             <div class="paginateButtons">
-                <g:paginate controller="user" action="searchList" params="[firstName:params?.firstName,lastName:params?.lastName,userName:params?.userName,jobFunction:params?.jobFunction,jobPosition:params?.jobPosition,publication:params?.publication,country:params?.country,accountStatus:params?.accountStatus]" total="${userInstanceTotal}" />
+                <g:paginate controller="user" action="searchList" params="[role:params?.role,firstName:params?.firstName,lastName:params?.lastName,userName:params?.userName,jobFunction:params?.jobFunction,jobPosition:params?.jobPosition,publication:params?.publication,country:params?.country,accountStatus:params?.accountStatus]" total="${userInstanceTotal}" />
             </div>
         </div>
     </body>
