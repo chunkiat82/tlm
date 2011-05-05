@@ -28,7 +28,7 @@ dataSource {
 		
 		/* WARNING: The below might cause super-long SQL statements to fail */
 		removeAbandoned = true
-		removeAbandonedTimeout = 60 // 60 seconds for longest running statement
+		removeAbandonedTimeout = 300 // [20110505] Ben: Increase this to 300, hopefully will remove strange errors
 		logAbandoned = true
 	
 	}
