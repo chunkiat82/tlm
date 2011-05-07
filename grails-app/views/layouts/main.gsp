@@ -3,7 +3,7 @@
         <title><g:layoutTitle default="TLM" /></title>
         <link rel="stylesheet" type="text/css" href="${resource(dir:'style', file:'ext-all.css')}" />        
         <link rel="stylesheet" href="${resource(dir:'style',file:'admin2.css')}" />
-        <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
+        <link rel="shortcut icon" href="${resource(dir:'',file:'favicon.ico')}" type="image/x-icon" />
         
         
         <script type="text/javascript" src="${resource(dir:'js', file:'ext-base.js')}"></script>
