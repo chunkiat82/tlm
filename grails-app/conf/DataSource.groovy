@@ -25,6 +25,10 @@ dataSource {
 		minEvictableIdleTimeMillis = 60000
 		timeBetweenEvictionRunsMillis = 60000
 		maxWait = 10000
+		maxActive = 25
+		maxIdle = 10
+		minIdle = 5
+		initialSize = 5
 		
 		/* WARNING: The below might cause super-long SQL statements to fail */
 		removeAbandoned = true
