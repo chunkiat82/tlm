@@ -29,7 +29,7 @@ dataSource {
 		/* WARNING: The below might cause super-long SQL statements to fail */
 		removeAbandoned = true
 		removeAbandonedTimeout = 300 // [20110505] Ben: Increase this to 300, hopefully will remove strange errors
-		logAbandoned = true
+		logAbandoned = false // [20110510] Ben: The warnings seem like red herrings.
 	
 	}
 	

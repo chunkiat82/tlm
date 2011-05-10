@@ -63,7 +63,9 @@ class ResponseUtil {
 	 * @param hash hash representing a time-sensitive identifier for the cached file
 	 * @return
 	 */
-	static def renderPDFBlob(response, String fileName, Blob pdfFile, String hash) {
+	static def renderPDFBlob(response, String fileName, Blob pdfFile, String hash) {		
+		println "[${fileName}] Initiating download stream"
+		
 		// transform the hash to a safe "filename"
 		hash = "${hash.encodeAsURL()}"
 		
@@ -83,7 +85,7 @@ class ResponseUtil {
 		
 		// if the hash is not in the cache, or the file that's supposed to be in the cache doesn't exist
 		if (!hashInCache || !fileExists) {
-			println "Creating cache PDF using hash ${hash}"
+			println "[${fileName}] Creating cache PDF using hash ${hash}"
 						
 			// create the file and register it into the cache
 			File currentDir = new File(System.getProperty("java.io.tmpdir"))
@@ -98,7 +100,7 @@ class ResponseUtil {
 			
 			fileMap.put(hash, cachedFile);
 		} else {
-			println "Using cached PDF file located via hash ${hash}"
+			println "[${fileName}] Using cached PDF file located via hash ${hash}"
 		}
 		
 		// after this point, the file is most definitely in the cache
@@ -108,10 +110,12 @@ class ResponseUtil {
 		FileInputStream fis = new FileInputStream(fileMap.get(hash))
 		response.contentLength = cachedFile.length()
 		try {
+			println "[${fileName}] Starting the output stream..."
 			response.outputStream << fis
 			response.outputStream.flush()
+			println "[${fileName}] Output stream is flushed..."
 		} catch(Exception e) {
-			println "Download of cached PDF file ${fileNameReplaced}.pdf failed"
+			println "[${fileName}] Download of cached PDF file ${fileNameReplaced}.pdf failed"
 			e.printStackTrace()
 		} finally {
 			fis.close();
