@@ -38,67 +38,74 @@ class ResponseController {
 		
 		synchronized(this.getClass()) {
 		
-			documentInstance.downloadCount = documentInstance.downloadCount + 1
-			
-			if (documentInstance.part == 1) {
-				// add to the issue download count
+			// [20110512] Ben: Force it to run in an independent transaction			
+			DownloadCount.withTransaction { status ->
+				println "[${documentInstance.name}] Begin transaction to update download count"
+				documentInstance.downloadCount = documentInstance.downloadCount + 1
 				
-				def _downloadCount = null
-				def day = new Date().getAt(Calendar.DAY_OF_MONTH)
-				def month = (new Date().getAt(Calendar.MONTH))+1
-				def year = new Date().getAt(Calendar.YEAR)
+				if (documentInstance.part == 1) {
+					// add to the issue download count
+					
+					def _downloadCount = null
+					def day = new Date().getAt(Calendar.DAY_OF_MONTH)
+					def month = (new Date().getAt(Calendar.MONTH))+1
+					def year = new Date().getAt(Calendar.YEAR)
+					
+					def _issue = documentInstance.issue
+					
+					def _user = null
+					if (params.userid) {
+						_user = User.get(params.userid)
+					} else if (authenticateService.principal()) {
+						_user = authenticateService.userDomain()
+					}
+		
+					if (_user) {
+						// user specific download
+						//println "Specific user download - user $_user.id downloaded issue $_issue.id"
+						
+						_downloadCount = DownloadCount.createCriteria().get {
+							eq("user", _user)
+							eq("issue", _issue)
+							eq("day", day)
+							eq("month", month)
+							eq("year", year)
+						}
+						
+						if (!_downloadCount) {
+							_downloadCount = new DownloadCount(user: _user, issue: _issue)
+						}
+						
+						_downloadCount.downloadCount++
+						
+					} // end if user download
+					else
+					{
+						// public download
+						//println "Anonymous download for issue $_issue.id"
+						
+						_downloadCount = DownloadCount.createCriteria().get {
+							isNull("user")
+							eq("issue", _issue)
+							eq("day", day)
+							eq("month", month)
+							eq("year", year)
+						}
+						
+						if (!_downloadCount) {
+							_downloadCount = new DownloadCount(user: null, issue: _issue)
+						}
+						
+						_downloadCount.downloadCount++
+						
+					} // end if anonymous download
+					
+					_downloadCount.save()
+				} // end if document is 1st part
 				
-				def _issue = documentInstance.issue
-				
-				def _user = null
-				if (params.userid) {
-					_user = User.get(params.userid)
-				} else if (authenticateService.principal()) {
-					_user = authenticateService.userDomain()
-				}
+				println "[${documentInstance.name}] End transaction to update download count"
 	
-				if (_user) {
-					// user specific download
-					//println "Specific user download - user $_user.id downloaded issue $_issue.id"
-					
-					_downloadCount = DownloadCount.createCriteria().get {
-						eq("user", _user)
-						eq("issue", _issue)
-						eq("day", day)
-						eq("month", month)
-						eq("year", year)
-					}
-					
-					if (!_downloadCount) {
-						_downloadCount = new DownloadCount(user: _user, issue: _issue)
-					}
-					
-					_downloadCount.downloadCount++
-					
-				} // end if user download
-				else
-				{
-					// public download
-					//println "Anonymous download for issue $_issue.id"
-					
-					_downloadCount = DownloadCount.createCriteria().get {
-						isNull("user")
-						eq("issue", _issue)
-						eq("day", day)
-						eq("month", month)
-						eq("year", year)
-					}
-					
-					if (!_downloadCount) {
-						_downloadCount = new DownloadCount(user: null, issue: _issue)
-					}
-					
-					_downloadCount.downloadCount++
-					
-				} // end if anonymous download
-				
-				_downloadCount.save()
-			} // end if document is 1st part
+			}
 
 		}
 	}
