@@ -24,7 +24,8 @@ class ResponseController {
 			    // render a blank image
 			    println "Rendering a blank ad since there is no such ad as $params.id"
 				response.contentType = "image"
-				FileInputStream fis = new FileInputStream("web-app/images/s.gif")
+				String path = grailsAttributes.getApplicationContext().getResource("/images/s.gif").getFile().toString()
+				FileInputStream fis = new FileInputStream(path)
 				response.outputStream << fis
 			}
 		}
