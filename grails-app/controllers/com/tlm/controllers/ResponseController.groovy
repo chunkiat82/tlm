@@ -17,8 +17,16 @@ class ResponseController {
 	def adsImage = {
 		if (params.id)
 		{
-			Ads ads = Ads.get(params.id)			
-			ResponseUtil.renderImageBlob(response, ads.getFileData(), "ads${ads.id}${ads.releaseDate}")
+			Ads ads = Ads.get(params.id)
+			if (ads) {
+				ResponseUtil.renderImageBlob(response, ads.getFileData(), "ads${ads.id}${ads.releaseDate}")
+			} else {
+			    // render a blank image
+			    println "Rendering a blank ad since there is no such ad as $params.id"
+				response.contentType = "image"
+				FileInputStream fis = new FileInputStream("web-app/images/s.gif")
+				response.outputStream << fis
+			}
 		}
 	}
 	

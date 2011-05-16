@@ -25,7 +25,7 @@ class EncodingUtil {
 	static String generateObfuscatedId(Long id) {
 		String salted = "${id}${constantString}"
 		String encoded = salted.encodeAsMD5()
-		println "Salted ID is [${salted}], encoded is [${encoded}]"
+		// println "Salted ID is [${salted}], encoded is [${encoded}]"
 		
 		return encoded
 	}

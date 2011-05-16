@@ -107,7 +107,7 @@ class Mailer implements Runnable {
 				// [090910] Ben: Parse the dynamic variable strings in the HTML template into real data
 				def htmlMessage = TemplateUtil.processTemplate(htmlTemplate, dynamicData) 
 				
-			    print "Sending one e-mail..."
+			    // print "Sending one e-mail..."
 			    def successful = true
 			    
 			    try {
@@ -124,15 +124,15 @@ class Mailer implements Runnable {
 			
 			    if (successful) {
 			    	// update the status of the item
-			    	print "sent..."
+			    	// print "sent..."
 			    	item.status = EmailJobItem.SENT
 			    } else {
-			    	print "FAILED..."
+			    	// print "FAILED..."
 			    	item.status = EmailJobItem.FAILED
 			    }
 				
 				item.save()				
-				print "status updated!\n"
+				// print "status updated!\n"
 			}
 			
 			if (iAmInterrupted()) return
