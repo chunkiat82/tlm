@@ -86,9 +86,6 @@ background-image:url(../images/icons/sst_icon.png) !important;
 .folderDocumentsIcon {
 background-image:url(../images/icons/folder_documents.png) !important;
 }
-.rssIcon {
-background-image:url(../images/rss.gif) !important;
-}
 .loginIcon {
 background-image:url(../images/icons/logout.gif) !important;
 }
@@ -227,7 +224,7 @@ select{
 	margin-left: 5px;
 }
 #images{
-	background: #fff url( ../tree/center-bg.gif ) repeat-x top left;
+	background: #fff;
 	font: 11px Arial, Helvetica, sans-serif;
 }
 #images .thumb{
@@ -347,7 +344,7 @@ select{
 }
 
 #images{
-	background: #fff url( ../tree/center-bg.gif ) repeat-x top left;
+	background: #fff;
 	font: 11px Arial, Helvetica, sans-serif;
 }
 #bottomDiv .thumb{

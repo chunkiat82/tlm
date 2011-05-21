@@ -31,7 +31,6 @@
 
 
 <!-- DESKTOP -->
-<script type="text/javascript" src="data/all.js"></script>
 <script type="text/javascript" src="js/Main.js"></script>
 <!--    -->
 <!--<script type="text/javascript" src="js/StartMenu.js"></script>-->

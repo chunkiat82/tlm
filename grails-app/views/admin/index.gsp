@@ -9,12 +9,12 @@
 <link rel="stylesheet" type="text/css" href="<g:resource dir="style" file="desktop.css"/>"/>
 <link rel="stylesheet" type="text/css" href="<g:resource dir="style" file="main.css" />"/>
 
-<script type="text/javascript" src="<g:resource dir="js" file="ext-base.css" />js/ext-base.js"></script>
+<script type="text/javascript" src="<g:resource dir="js" file="ext-base.js" />"></script>
 <!-- ENDLIBS -->
 
 <script type="text/javascript" src="<g:resource dir="js" file="ext-all.js" />"></script>
 <script type="text/javascript" src="<g:resource dir="js" file="ext-basex.js" />"></script>
-<script type="text/javascript" src="<g:resource dir="js" file="ext-all.css" />"></script>
+<script type="text/javascript" src="<g:resource dir="style" file="ext-all.css" />"></script>
 <link rel="stylesheet" type="text/css" href="<g:resource dir="style" file="admin2.css" />"/>
 </head>
 <body>
