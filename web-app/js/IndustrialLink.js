@@ -83,10 +83,10 @@ function createIndustrialLinkPanel(){
 			            	}	
 			            	return 0;	
             			}
-            	},renderer:renderOrganization
+            	},renderer:renderWebsite
         	},
             {dataIndex: 'abbreivation', header: 'Abbreivation',sortable: false, id: 'abbreivation'},
-            {dataIndex: 'website', header: 'Website',sortable: false, id: 'website',renderer:renderOrganization},
+            {dataIndex: 'website', header: 'Website',sortable: false, id: 'website',renderer:renderWebsite},
             {id: 'publications',header:'Magazines Involved', dataIndex: 'publications',renderer:publicationRenderer}
         ]);
         cm.defaultSortable = true;
