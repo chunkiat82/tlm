@@ -88,7 +88,7 @@ function generateAdsForSponsors(){
             '<tpl for=".">',
             '<div class="thumb-wrap" id="{name}">',
             '<div class="thumb"><tpl if="this.isImage(mimeType)">',
-            '<a href="{url}" target="_blank" border="0"><img src="/tlm/response/adsImage/{id}" class="thumb-img" /></a>',
+            '<a href="{url}" onclick="_gaq.push([\'_trackEvent\', \'banner_links\', \'Click\', \'{url}\'])" target="_blank" border="0"><img src="/tlm/response/adsImage/{id}" class="thumb-img" /></a>',
             '</tpl><tpl if="this.isImage(mimeType) == false">',
             '<object width="150" height="150" id="advertise3"',
 			'codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"',
