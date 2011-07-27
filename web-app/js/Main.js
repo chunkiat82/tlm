@@ -210,4 +210,4 @@ function loadjscssfile(filename, filetype){
 var documentFields = ['id', 'name', 'description', 'fileName', 'dateCreated', 'releaseDate', 'expireDate' ];
 var adsFields = ['id', 'name', 'mimeType', 'fileName', 'url', 'releaseDate', 'expireDate' ];
 var issueFields = ['id', 'name', 'description', 'number', 'downloadCount', 'releaseDate', 'documents']
-var industrialLinkFields=['id','organization','abbreivation','website','publications']
+var industrialLinkFields=['id','organization','abbreviation','website','publications']
