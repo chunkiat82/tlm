@@ -1,6 +1,8 @@
 Ext.onReady(function() {
 	//generateAdsForEvents();
 	generateAdsForSponsors();
+	
+	
 });
 
 function generateAdsForEvents(){
@@ -23,7 +25,7 @@ function generateAdsForEvents(){
             '<tpl for=".">',
             '<div class="thumb-wrap" id="{name}">',
             '<div class="thumb"><tpl if="this.isImage(mimeType)">',
-            '<a target="_blank" href="{url}" border="0"><img src="/tlm/response/adsImage/{id}" class="thumb-img" /></a>',
+            '<a class="thumb-link" target="_blank" href="#" title="{url}" border="0"><img src="/tlm/response/adsImage/{id}" class="thumb-img" /></a>',
             '</tpl><tpl if="this.isImage(mimeType) == false">',
             '<object width="150" height="150" id="advertise3"',
 			'codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"',
@@ -67,6 +69,8 @@ function generateAdsForEvents(){
     	},
 	    interval: 2000
 	});
+	
+	
 }
 
 function generateAdsForSponsors(){
@@ -88,16 +92,17 @@ function generateAdsForSponsors(){
             '<tpl for=".">',
             '<div class="thumb-wrap" id="{name}">',
             '<div class="thumb"><tpl if="this.isImage(mimeType)">',
-            '<a href="{url}" onclick="_gaq.push([\'_trackEvent\', \'banner_links\', \'Click\', \'{url}\'])" target="_blank" border="0"><img src="/tlm/response/adsImage/{id}" class="thumb-img" /></a>',
+           // '<a href="{url}" onclick="_gaq.push([\'_trackEvent\', \'banner_links\', \'Click\', \'{url}\'])" target="_blank" border="0"><img src="/tlm/response/adsImage/{id}" class="thumb-img" /></a>',
+            '<a class="thumb-link" target="_blank" href="#" title="{url}" name="${name}" border="0"><img src="/tlm/response/adsImage/{id}" class="thumb-img" /></a>',
             '</tpl><tpl if="this.isImage(mimeType) == false">',
-            '<object width="150" height="150" id="advertise3"',
+            '<object   width="150" height="150" id="advertise3"',
 			'codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"',
 			'classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000">',
 			'<param value="/tlm/response/adsImage/{id}" name="movie">',
 			'<param value="High" name="quality">',
 			'<param value="#ffffff" name="bgcolor">',
 			'<param value="transparent" name="wmode">',
-			'<embed width="150" height="150" align=""',
+			'<embed title="{url}" name="${name}" class="thumb-link" width="150" height="150" align=""',
 			'pluginspage="http://www.macromedia.com/go/getflashplayer"',
 			'type="application/x-shockwave-flash" wmode="transparent" name="advertise1"',
 			'bgcolor="#ffffff" quality="High"',
@@ -133,4 +138,7 @@ function generateAdsForSponsors(){
     	},
 	    interval: 2000
 	});
+	
+	
+	
 }

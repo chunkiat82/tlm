@@ -55,6 +55,7 @@ function openWindowLocation(input){
 }
 function frameworkCalls(jsonObj)
 {
+	_gaq.push(['_trackPageview', jsonObj.windowId]);
 	//this will close all the windows instead of just hiding it
 	if (jsonObj.hideAll!=false){
 		//it is not a publication panel load
@@ -205,6 +206,22 @@ function loadjscssfile(filename, filetype){
 	 }
 	 if (typeof fileref!="undefined")
 	  document.getElementsByTagName("head")[0].appendChild(fileref)
+}
+
+function jqueryInitialization(){
+	
+	$('.thumb-link').click(function(e){
+		e.preventDefault();
+		var url = $(this).attr('title');
+		var name = $(this).attr('name');
+		_gaq.push(['_trackPageview', name]);
+		setTimeout('openWindow("'+url+'")', 500);
+
+	});
+}
+
+function openWindow(url){
+	window.open(url, '_blank');
 }
 
 var documentFields = ['id', 'name', 'description', 'fileName', 'dateCreated', 'releaseDate', 'expireDate' ];

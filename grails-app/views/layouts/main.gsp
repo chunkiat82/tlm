@@ -6,6 +6,8 @@
         <link rel="shortcut icon" href="${resource(dir:'',file:'favicon.ico')}" type="image/x-icon" />
         
         
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        
         <script type="text/javascript" src="${resource(dir:'js', file:'ext-base.js')}"></script>
         <script type="text/javascript" src="${resource(dir:'js', file:'ext-all-debug.js')}"></script>
         <script type="text/javascript" src="${resource(dir:'js/tiny_mce', file:'tiny_mce.js')}"></script>

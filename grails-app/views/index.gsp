@@ -7,7 +7,7 @@
 <link rel="shortcut icon" href="favicon.ico">
 <title>Trade Link Media Pte Ltd</title>
 
-
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 
 
 <link rel="stylesheet" type="text/css" href="style/ext-all.css" />
@@ -94,7 +94,7 @@
 <img src="images/tlm/seab100.png" />
 <img src="images/tlm/seac100.png" />
 <img src="images/tlm/st100.png" />
-<div id="nextPageDiv" style="display:none;width:100px;float:left;"><a href="#"><img id="nextPageImage" src="images/nextPage.png"/></a></div>
+<div id="nextPageDiv" style="display:none;width:100px;float:left;"><a href="#" onclick="jqueryInitialization()"><img id="nextPageImage" src="images/nextPage.png"/></a></div>
 <div id="loadingDiv" class="loading-indicator">Loading</div>
 
 </div>

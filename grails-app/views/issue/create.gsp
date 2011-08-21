@@ -1,4 +1,4 @@
-<%@ page import="com.tlm.beans.Issue"%>
+<%@page import="com.tlm.beans.Issue"%>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
