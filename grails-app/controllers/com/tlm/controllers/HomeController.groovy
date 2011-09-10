@@ -8,7 +8,6 @@ class HomeController {
     def index = { 
 		def activateId = params['activateId']
 		def pubId = params['id']
-		println pubId
 		if (activateId != null) {
 			render(view:'/index', model:[activatedUser: User.get(activateId),pubId:pubId])
 		} else {
