@@ -4,7 +4,7 @@ function Publications() {
 	var pubObj;
 	var pubStore;
 	var publicationSlider;
-	this.init = function(){
+	this.init = function(pubId){
 		 var timestamp = Number(new Date()); 
 		 Ext.Ajax.request ({url: urls.pubList,
 	           async : true,
@@ -17,7 +17,11 @@ function Publications() {
 		           	    
 		  		    Ext.get('basic-slider').setWidth(300);
 				    Ext.get('basic-slider').center(Ext.get('sliderOutDiv'));
-				    imageLoaded();
+				    if(pubId){
+				    	hideImage();
+				    	openDownloads(pubId);
+				    }else
+				    	imageLoaded();
 	           },
 	           failure: function() {
 	                  window.location.href="/tlm";
@@ -40,10 +44,14 @@ function imageLoaded(){
 	Ext.get('nextPageDiv').show();
 	Ext.get('loadingDiv').hide();
 	Ext.get('nextPageImage').on('click',function (){
-		Ext.get('loading').hide();
-	    Ext.get('loading-mask').fadeOut({remove:false});
-	    Ext.get('nextPageDiv').hide();
+		hideImage();
 	});		  		
+}
+
+function hideImage(){
+	Ext.get('loading').hide();
+    Ext.get('loading-mask').fadeOut({remove:false});
+    Ext.get('nextPageDiv').hide();
 }
 MyDesktop.PublicationWindow = Ext.extend(Ext.app.Module, {
    id:'pub-win',

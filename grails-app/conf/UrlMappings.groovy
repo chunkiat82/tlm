@@ -12,7 +12,7 @@ class UrlMappings {
 			 // apply constraints here
 		  }
 	  }
-      "/"(controller:'home', action: 'index')
+      "/$id?"(controller:'home', action: 'index')	  
 	  "500"(view:'/error')
 		
 	  // special mapping for publication downloads

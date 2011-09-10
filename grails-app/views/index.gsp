@@ -62,7 +62,7 @@
 <script type="text/javascript">
 	Ext.onReady(function() {
 			PublicationsPers = new Publications();
-			PublicationsPers.init();			
+			PublicationsPers.init(${pubId});			
 			
 	});       
 	</script>
