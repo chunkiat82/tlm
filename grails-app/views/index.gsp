@@ -8,7 +8,8 @@
 <title>Trade Link Media Pte Ltd</title>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-
+<script type="text/javascript" src="${resource(dir:'js/tiny_mce', file:'tiny_mce.js')}"></script>
+<script type="text/javascript" src="${resource(dir:'js/tiny_mce', file:'view_config_home.js')}" ></script>
 
 <link rel="stylesheet" type="text/css" href="style/ext-all.css" />
 <link rel="stylesheet" type="text/css" href="style/bubble.css" />
@@ -53,6 +54,7 @@
 <script type="text/javascript" src="js/AboutUs.js"></script>
 <script type="text/javascript" src="js/IndustrialLink.js"></script>
 <script type="text/javascript" src="js/Login.js"></script>
+
 <script>
             var myNewFlow = new ContentFlow('contentFlow') ;
 </script>

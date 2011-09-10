@@ -25,6 +25,7 @@ function ajaxCallNewsTask(url){
         	       run: function(){updateNews(inputObj.items)},
         	       interval: 10000
         	   }
+        	  
         	   Ext.TaskMgr.start(newsTask); 
            }
         },
@@ -42,7 +43,7 @@ function updateNews(inputObj){
        if (newsObj.length<(timerNewsCount+1))
     	   timerNewsCount=0;
        var html="";           
-       html+='<div id="newsBody">';
+       html+='<div id="newsBody" style="overflow:hidden;">';
        html+='<h1 style="font-size: 120%">'+newsObj[timerNewsCount].title+'</h1>';
      //  html+='<h4 style="font-size: 100%">'+defaultDateFormat(newsObj[timerNewsCount].publicationDate)+'</h4>';
        //html+='<h4 style="font-size: 100%">'+newsObj[timerNewsCount].publicationDate+'</h4>';
@@ -57,8 +58,8 @@ function updateNews(inputObj){
     	    remove: false,
     	    useDisplay: false,
     	    callback:function(){
-		    	   Ext.get('footerNews').update('');
-		           
+    	    	  tinyMCE.execCommand("mceRemoveControl", false, "newsBody"); 
+		    	  Ext.get('footerNews').update('');
 		           new Ext.Container({
 		               id:'pubNewsPanel',
 		               renderTo:'footerNews',
@@ -69,7 +70,10 @@ function updateNews(inputObj){
 		               padding: '5 5 5 5',
 		               html:html
 		           });
-		           Ext.get('footerNews').fadeIn();
+		           tinyMCE.execCommand("mceAddControl", false, "newsBody");
+		           $('#newsBody_ifr').attr("scrolling","no");
+		           Ext.get('footerNews').fadeIn();		           
+		          
        		}
     	});
        
