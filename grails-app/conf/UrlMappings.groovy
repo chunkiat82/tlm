@@ -12,11 +12,20 @@ class UrlMappings {
 			 // apply constraints here
 		  }
 	  }
-      "/$id?"(controller:'home', action: 'index')	  
-	  "500"(view:'/error')
+      
+	  
+	  "/$id?"{
+		  controller = "home"
+		  action = "index"
+		  constraints {
+			   id(matches:/\d{1}/)
+		  }
+	 }
+	 "/"(controller:'home', action: 'index')
+	 "500"(view:'/error')
 		
 	  // special mapping for publication downloads
-	  "/response/download/$id?/user/$userid?"(controller:'response', action:'download')
+	 "/response/download/$id?/user/$userid?"(controller:'response', action:'download')
 	  
 	}
 }
