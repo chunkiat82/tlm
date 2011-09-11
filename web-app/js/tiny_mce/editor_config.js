@@ -21,7 +21,7 @@
 		external_link_list_url : "lists/link_list.js",
 		external_image_list_url : "lists/image_list.js",
 		media_external_list_url : "lists/media_list.js",
-		extended_valid_elements : "object[classid|codebase|width|height|align|allowscriptaccess|allowfullscreen|data],param[name|value|allowscriptaccess|allowfullscreen],embed[quality|type|pluginspage|width|height|src|align|allowscriptaccess|allowfullscreen]",
+		extended_valid_elements : "object[classid|codebase|width|height|align|allowscriptaccess|allowfullscreen|data],param[name|value|allowscriptaccess|allowfullscreen],embed[quality|type|pluginspage|width|height|src|align|allowscriptaccess|allowfullscreen|wode]",
 		// Style formats
 		style_formats : [
 			{title : 'Bold text', inline : 'b'},
