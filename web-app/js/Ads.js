@@ -1,8 +1,5 @@
 Ext.onReady(function() {
-	//generateAdsForEvents();
-	generateAdsForSponsors();
-	
-	
+	rotateAds(10);
 });
 
 function generateAdsForEvents(){
@@ -53,7 +50,7 @@ function generateAdsForEvents(){
             }
         )
     });
-	var topSponsor=0;
+	/*var topSponsor=0;
 	Ext.TaskMgr.start({
 	    run: function(){
 			var adsEventPanel =Ext.get('bottomDiv');
@@ -68,7 +65,7 @@ function generateAdsForEvents(){
         	}
     	},
 	    interval: 2000
-	});
+	});*/
 	
 	
 }
@@ -121,24 +118,19 @@ function generateAdsForSponsors(){
             }
         )
     });
+	var adsEventPanel =Ext.get('rightMenuDiv');
+	
+	
+	
+}
+function rotateAds(seconds){
 	var topSponsor=0;
 	Ext.TaskMgr.start({
 	    run: function(){
-			var adsEventPanel =Ext.get('rightMenuDiv');
-        	//var tempTopSponsor= sponsorsPanel.body.getScroll().top;
-			var tempTopSponsor= adsEventPanel.getScroll().top;
-        	if (tempTopSponsor+100<topSponsor){
-        		adsEventPanel.scrollTo('top',0,true);
-        		topSponsor=0;
-        	}
-        	else{
-	        	topSponsor+=100;
-	        	adsEventPanel.scroll('b',100,true);
-        	}
+	    	generateAdsForSponsors();
     	},
-	    interval: 2000
+	    interval: (seconds*1000)
 	});
-	
 	
 	
 }

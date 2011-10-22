@@ -1,9 +1,8 @@
 package com.tlm.controllers
+import java.util.Date
+
 import com.tlm.beans.*
 import com.tlm.utils.*
-import org.hibernate.FetchMode as FM
-import java.lang.Runtime
-import java.util.Date
 
 class JsonController {
 	def jsonService;
@@ -177,9 +176,10 @@ class JsonController {
 				}
 			}
 			ge ( "expireDate", new Date() )
-			maxResults(maxResult)
-			order("expireDate", "asc")
 		}
+		
+		objList=  shuffleArrayList(objList)[1..maxResult]
+		
 		JSON.use("deep"){
 			render([success: "true", items:objList ] as JSON)			
 		}
@@ -226,7 +226,23 @@ class JsonController {
 			render(contentType: "application/json", text: json as JSON)
 		}
 	}
+	
+	def shuffleArrayList = { source ->
+		ArrayList sortedList = new ArrayList();
+		Random generator = new Random();
+		while (source.size() > 0)
+		{
+			int position = generator.nextInt(source.size());
+			sortedList.add(source[position]);
+			source.remove(position);
+		}
+	
+		return sortedList;
+	}
+	
 }
+
+
 //example
 //			def tasks = c2.list{
 //				eq("assignee.id", task.assignee.id)

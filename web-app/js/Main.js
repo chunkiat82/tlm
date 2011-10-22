@@ -15,7 +15,7 @@ var urls={
 	issueDownload:urlPath+'response/download/',
 	adsList:urlPath+'json/adsList',
 	adsEventsList:urlPath+'json/adsList?rank=2&size=30',
-	adsSponsorsList:urlPath+'json/adsList?rank=1&size=30',
+	adsSponsorsList:urlPath+'json/adsList?rank=1&size=3',
 	newsList:urlPath+'json/newsList?size=15',
 	industrialLinkList:urlPath+'json/industrialLinkList'
 };
