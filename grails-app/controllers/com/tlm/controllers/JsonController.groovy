@@ -177,8 +177,8 @@ class JsonController {
 			}
 			ge ( "expireDate", new Date() )
 		}
-		
-		objList=  shuffleArrayList(objList)[1..maxResult]
+		if (params.rank==1)
+			objList=  shuffleArrayList(objList)[1..maxResult]
 		
 		JSON.use("deep"){
 			render([success: "true", items:objList ] as JSON)			
