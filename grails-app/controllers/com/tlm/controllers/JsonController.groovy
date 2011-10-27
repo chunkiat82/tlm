@@ -177,7 +177,7 @@ class JsonController {
 			}
 			ge ( "expireDate", new Date() )
 		}
-		if (params.rank==1)
+		if (params.rank=="1")
 			objList=  shuffleArrayList(objList)[1..maxResult]
 		
 		JSON.use("deep"){
