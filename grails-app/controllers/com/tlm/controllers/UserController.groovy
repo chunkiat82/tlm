@@ -25,10 +25,6 @@ class UserController {
         	response.setHeader("Content-disposition", "attachment; filename=users.${params.format}")
 			List fields =  new ArrayList<String>(User.getDisplayColumns().keySet())
 			Map labels = User.getDisplayColumns()
-			
-			// Formatter closure def upperCase = { value -> return value.toUpperCase() }
-			
-			//Map formatters = [author: upperCase] 
 			Map parameters = [title: 'All Users List']
 			
 			exportService.export(params.format, response.outputStream , User.list(), fields, labels, [:], parameters) 
@@ -40,7 +36,9 @@ class UserController {
     }
 
 	def searchList = {
-		params.max = Math.min(params.max ? params.int('max') : 10, 100)
+		if(!params.format){
+			params.max = Math.min(params.max ? params.int('max') : 10, 100)
+		}
 		def userList = User.createCriteria().list(params){
 			if(params.userName)
 			{
@@ -54,21 +52,21 @@ class UserController {
 			{
 				like ('firstName','%'+params.firstName+'%')
 			}
-			if(params.jobFunction != "null")
+			if(params.jobFunction  && params.jobFunction != "null")
 			{
 				eq ('jobFunction.id',Long.parseLong(params.jobFunction))
 			}
-			if(params.jobPosition != "null")
+			if(params.jobPosition && params.jobPosition != "null")
 			{
 				eq ('jobPosition.id',Long.parseLong(params.jobPosition))
 			}
-			if(params.publication != "null")
+			if(params.publication && params.publication != "null")
 			{
 				subscriptions{
 					eq ('publication.id',Long.parseLong(params.publication))
 				}
 			}
-			if(params.country != "null")
+			if(params.country && params.country != "null")
 			{
 				eq ('country.id',Long.parseLong(params.country))
 			}
@@ -76,59 +74,75 @@ class UserController {
 			{
 				eq ('accountStatus',Integer.parseInt(params.accountStatus))
 			}
-			if(params.role != "null")
+			if(params.role && params.role != "null")
 			{
 				roles {
 					eq ('id',Long.parseLong(params.role))
 				}
 			}			
 		}
-		def userInstanceTotal = User.createCriteria().get{
-			projections {
-				rowCount()
-			}
-			if(params.userName)
-			{
-				like ('userName','%'+params.userName+'%')
-			}
-			if(params.lastName)
-			{
-				like ('lastName','%'+params.lastName+'%')
-			}
-			if(params.firstName)
-			{
-				like ('firstName','%'+params.firstName+'%')
-			}
-			if(params.jobFunction != "null")
-			{
-				eq ('jobFunction.id',Long.parseLong(params.jobFunction))
-			}
-			if(params.jobPosition != "null")
-			{
-				eq ('jobPosition.id',Long.parseLong(params.jobPosition))
-			}
-			if(params.publication != "null")
-			{
-				subscriptions{
-					eq ('publication.id',Long.parseLong(params.publication))
-				}
-			}
-			if(params.country != "null")
-			{
-				eq ('country.id',Long.parseLong(params.country))
-			}
-			if(params.accountStatus)
-			{
-				eq ('accountStatus',Integer.parseInt(params.accountStatus))
-			}
-			if(params.role != "null")
-			{
-				roles {
-					eq ('id',Long.parseLong(params.role))
-				}
-			}
+		
+		
+		if(params?.format && params.format != "html"){
+			response.contentType = ConfigurationHolder.config.grails.mime.types[params.format]
+			response.setHeader("Content-disposition", "attachment; filename=users.${params.format}")
+			List fields =  new ArrayList<String>(User.getDisplayColumns().keySet())
+			Map labels = User.getDisplayColumns()
+			
+			Map parameters = [title: 'Filtered Users List']
+			
+			exportService.export(params.format, response.outputStream , userList, fields, labels, [:], parameters)
 		}
-        return [userInstanceList: userList, userInstanceTotal: userInstanceTotal,params:params]
+		else
+		{
+			def userInstanceTotal = User.createCriteria().get{
+				projections {
+					rowCount()
+				}
+				if(params.userName)
+				{
+					like ('userName','%'+params.userName+'%')
+				}
+				if(params.lastName)
+				{
+					like ('lastName','%'+params.lastName+'%')
+				}
+				if(params.firstName)
+				{
+					like ('firstName','%'+params.firstName+'%')
+				}
+				if(params.jobFunction != "null")
+				{
+					eq ('jobFunction.id',Long.parseLong(params.jobFunction))
+				}
+				if(params.jobPosition != "null")
+				{
+					eq ('jobPosition.id',Long.parseLong(params.jobPosition))
+				}
+				if(params.publication != "null")
+				{
+					subscriptions{
+						eq ('publication.id',Long.parseLong(params.publication))
+					}
+				}
+				if(params.country != "null")
+				{
+					eq ('country.id',Long.parseLong(params.country))
+				}
+				if(params.accountStatus)
+				{
+					eq ('accountStatus',Integer.parseInt(params.accountStatus))
+				}
+				if(params.role != "null")
+				{
+					roles {
+						eq ('id',Long.parseLong(params.role))
+					}
+				}
+				
+			}
+			return [userInstanceList: userList, userInstanceTotal: userInstanceTotal,params:params]
+		}
     }
 
 	def search = {

@@ -55,7 +55,9 @@
             </div>
             <div class="paginateButtons">
                 <g:paginate controller="user" action="searchList" params="[role:params?.role,firstName:params?.firstName,lastName:params?.lastName,userName:params?.userName,jobFunction:params?.jobFunction,jobPosition:params?.jobPosition,publication:params?.publication,country:params?.country,accountStatus:params?.accountStatus]" total="${userInstanceTotal}" />
+                
             </div>
+            <export:formats formats="['csv', 'excel', 'ods', 'pdf']" params="[role:params?.role,firstName:params?.firstName,lastName:params?.lastName,userName:params?.userName,jobFunction:params?.jobFunction,jobPosition:params?.jobPosition,publication:params?.publication,country:params?.country,accountStatus:params?.accountStatus]"/>
         </div>
     </body>
 </html>
