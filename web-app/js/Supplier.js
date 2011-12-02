@@ -99,7 +99,7 @@ function createSupplierPanel(){
 			            	}	
 			            	return 0;	
             			}
-            	},renderer:renderOrganization
+            	},renderer:renderWebsite
         	},   
             {dataIndex: 'description', header: 'Description',sortable: false, defaultWidth:'200',id: 'description',
         		filter: {
