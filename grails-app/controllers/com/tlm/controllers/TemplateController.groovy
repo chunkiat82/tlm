@@ -212,10 +212,15 @@ public class TemplateController {
 				emailJobItem.user = it
 				emailJobItem.email = it.email			
 				emailJobItem.status = EmailJobItem.PENDING
-				emailJobItem.save()
+				emailJobItem.save(flush: true) // force flushing
 				if (emailJobItem.hasErrors()) {
 					println "Could not save email job item: ${emailJobItem.errors}"
 				}
+				
+				// [28-Jan-2012] Ben: Too long since I touched gorm / hibernate.  I'm not sure
+				// if this will work
+				sessionFactory.currentSession.evict(emailJobItem)
+				
 			}
 		}
 		
