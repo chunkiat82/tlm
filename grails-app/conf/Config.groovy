@@ -98,7 +98,7 @@ grails {
 	mail {
 		host = "soho.sg"
 		port = 465
-		username = "bounce@tradelinkmedia.biz"
+		username = "tlm@soho.sg"
 		password = "1q2w3e4r"
 		props = ["mail.smtp.auth":"true", 					   
 				"mail.smtp.socketFactory.port":"465",
