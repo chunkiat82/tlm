@@ -40,7 +40,7 @@ grails.war.destFile = "tlm.war"
 // set per-environment serverURL stem for creating absolute links
 environments {
     production {
-		logDirectory ="/usr/share/tomcat5/logs"
+		//logDirectory ="/usr/share/tomcat5/logs"
         grails.serverURL = "http://www.tradelinkmedia.biz/tlm"
     }
 	staging {
