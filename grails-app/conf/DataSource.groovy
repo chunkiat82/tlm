@@ -27,13 +27,12 @@ dataSource {
 		maxWait = 10000
 		maxActive = 25
 		maxIdle = 10
-		minIdle = 5
-		initialSize = 5
-		
+		minIdle = 3
+		initialSize = 3
 		/* WARNING: The below might cause super-long SQL statements to fail */
 		removeAbandoned = true
-		removeAbandonedTimeout = 300 // [20110505] Ben: Increase this to 300, hopefully will remove strange errors
-		logAbandoned = false // [20110510] Ben: The warnings seem like red herrings.
+		removeAbandonedTimeout = 60 // 60 seconds for longest running statement
+		logAbandoned = true
 	
 	}
 	
