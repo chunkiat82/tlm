@@ -204,25 +204,37 @@ public class TemplateController {
 		emailJob.save()
 		
 		println "Going to create massive amounts of emailJobItem(s)";
+                
+		def part=400
+		def start=0
+
+		// damn pissed off
+		println "Flushing is turned off"
+		while (start < users.size()) {
+
+		def end = Math.min(start + part, users.size()) // define boundaries
+		println "Partition is from ${start} to ${end}"
+		
 		// create all the EmailJobItems associated with the job
 		User.withTransaction {
-			users.each {
+			for (int i=start; i < end; i++) {
+				def itz = users.get(i)
 				def emailJobItem = new EmailJobItem()
 				emailJobItem.emailJob = emailJob
-				emailJobItem.user = it
-				emailJobItem.email = it.email			
+				emailJobItem.user = itz
+				emailJobItem.email = itz.email			
 				emailJobItem.status = EmailJobItem.PENDING
-				emailJobItem.save(flush: true) // force flushing
+				emailJobItem.save()
 				if (emailJobItem.hasErrors()) {
 					println "Could not save email job item: ${emailJobItem.errors}"
 				}
-				
-				// [28-Jan-2012] Ben: Too long since I touched gorm / hibernate.  I'm not sure
-				// if this will work
-				sessionFactory.currentSession.evict(emailJobItem)
-				
 			}
 		}
+
+		println "Finished partition from ${start} to ${end}"
+		start = end // redefine start
+
+		} // end of ad-hoc adjustment
 		
 		flash.message = "[STARTED] ${emailJob.description}"
 		emailJobService.startSendingFor(emailJob, "${request.scheme}://${request.serverName}:${request.serverPort}${request.contextPath}")
