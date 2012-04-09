@@ -2,3 +2,5 @@ target
 .settings
 .classpath
 web-app/WEB-INF/classes
+app.log
+target-eclipse
