@@ -247,7 +247,7 @@ function getRegistrationWindow()
         	    items: [
                   // label, name, comboValues, valueField, displayField, blankOptionLabel, required
                   comboBox('Country', 'user.country.id', countries, 'id', 'title', 'Country...', true,true),
-                  textArea('Address', 'user.address', false),
+                  textArea('Address', 'user.address', true),
                   textField('City', 'user.city', false),
                   textField('State', 'user.state', false),
                   numberField('Postal Code', 'user.postal', false)
