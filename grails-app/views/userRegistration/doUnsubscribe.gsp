@@ -22,7 +22,7 @@
                 <div class="dialog">
                     <table>
                         <tbody>
-                            <tr><td colspan="2" class="sectionheader">You now only subscribe to the following newsletters:</td></tr>
+                            <tr><td colspan="2" class="sectionheader">You are now only subscribed to the following newsletters:</td></tr>
                             
                             <g:set var="pubId" value="" />                            
                             <g:each in="${subscriptions}" var="sub">
