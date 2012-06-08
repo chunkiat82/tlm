@@ -176,7 +176,7 @@ class JsonController {
 				}
 			}
 			ge ( "expireDate", new Date() )
-			order("releaseDate", "asc")
+			order("expireDate", "asc")
 		}
 		if (params.rank=="1")
 			objList=  shuffleArrayList(objList)[1..maxResult]
