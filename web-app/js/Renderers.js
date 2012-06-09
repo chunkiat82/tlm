@@ -1,13 +1,21 @@
-var localOffset = (new Date()).getTimezoneOffset()* 60000;
-function defaultMonthFormat(value,p,record) 
-{ 
- 	value = new Date((value.getTime()) -localOffset);
-	return value.format("M Y"); 
+var localOffset = -1*((new Date()).getTimezoneOffset()* 60000);
+var sinOffset = 8 * 60 * 60000;
+//i need to use this function because somehow EXTJS is screwing with my dates
+function manipulateDate(input){
+        if (localOffset<sinOffset){
+                return new Date(input.getTime()+ (24 * 60 * 60000));
+        }
+        return input;
 }
-function defaultDateFormat(value,p,record) 
-{ 
-	value = new Date((value.getTime()) -localOffset);
-	return value.format("d M Y"); 
+function defaultMonthFormat(value,p,record)
+{
+        value = manipulateDate(value);
+        return value.format("M Y");
+}
+function defaultDateFormat(value,p,record)
+{
+        value = manipulateDate(value);
+        return value.format("d M Y");
 }
 
 
