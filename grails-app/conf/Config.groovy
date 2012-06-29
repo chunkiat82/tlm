@@ -99,7 +99,7 @@ grails {
 		host = "soho.sg"
 		// port = 465
 		port = 25
-		username = "tlm@soho.sg"
+		username = "tlm@sporemail.com"
 		password = "1q2w3e4r"
 		props = [
 				//"mail.smtp.auth":"true", 					   
