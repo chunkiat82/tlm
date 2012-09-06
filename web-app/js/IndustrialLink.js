@@ -42,7 +42,7 @@ MyDesktop.IndustrialLinkWindow = Ext.extend(Ext.app.Module, {
             win = desktop.createWindow({
                 id: 'supplier-win',
                 title:'Industrial Links',
-                width:'70%',
+                width:'100%',
                 height:480,
                 iconCls: 'icon-grid',
                 shim:false,

@@ -86,7 +86,7 @@ MyDesktop.EventWindow = Ext.extend(Ext.app.Module, {
             win = desktop.createWindow({
                 id: 'event-win',
                 title:'Calendar',
-                width:'95%',
+                width:'100%',
                 height:480,
                 iconCls: 'icon-grid',
                 shim:false,
