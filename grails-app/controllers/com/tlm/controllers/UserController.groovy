@@ -1,10 +1,9 @@
 package com.tlm.controllers
 
-import com.tlm.utils.EncodingUtil
-import java.util.Map;
+import org.codehaus.groovy.grails.commons.ConfigurationHolder
 
 import com.tlm.beans.*
-import org.codehaus.groovy.grails.commons.ConfigurationHolder
+import com.tlm.utils.JSON
 
 class UserController {
 	
@@ -39,66 +38,118 @@ class UserController {
 		if(!params.format){
 			params.max = Math.min(params.max ? params.int('max') : 10, 100)
 		}
-		def userList = User.createCriteria().list(params){
-			if(params.userName)
-			{
-				like ('userName','%'+params.userName+'%')
-			}
-			if(params.lastName)
-			{
-				like ('lastName','%'+params.lastName+'%')
-			}
-			if(params.firstName)
-			{
-				like ('firstName','%'+params.firstName+'%')
-			}
-			if(params.jobFunction  && params.jobFunction != "null")
-			{
-				eq ('jobFunction.id',Long.parseLong(params.jobFunction))
-			}
-			if(params.jobPosition && params.jobPosition != "null")
-			{
-				eq ('jobPosition.id',Long.parseLong(params.jobPosition))
-			}
-			if(params.publication && params.publication != "null")
-			{
-				subscriptions{
-					eq ('publication.id',Long.parseLong(params.publication))
-				}
-			}
-			if(params.country && params.country != "null")
-			{
-				eq ('country.id',Long.parseLong(params.country))
-			}
-			if(params.accountStatus)
-			{
-				eq ('accountStatus',Integer.parseInt(params.accountStatus))
-			}
-			if(params.role && params.role != "null")
-			{
-				roles {
-					eq ('id',Long.parseLong(params.role))
-				}
-			}			
-		}
-		
 		
 		if(params?.format && params.format != "html"){
+			def userListIds = User.createCriteria().list(){
+				projections { 
+					distinct ([	'id']) 
+				}
+				if(params.userName  && params.userName != "")
+				{
+					like ('userName','%'+params.userName+'%')
+				}
+				if(params.lastName  && params.lastName != "")
+				{
+					like ('lastName','%'+params.lastName+'%')
+				}
+				if(params.firstName  && params.firstName != "")
+				{
+					like ('firstName','%'+params.firstName+'%')
+				}
+				if(params.jobFunction  && params.jobFunction != "null")
+				{
+					eq ('jobFunction.id',Long.parseLong(params.jobFunction))
+				}
+				if(params.jobPosition && params.jobPosition != "null")
+				{
+					eq ('jobPosition.id',Long.parseLong(params.jobPosition))
+				}
+				if(params.publication && params.publication != "null")
+				{
+					subscriptions{
+						eq ('publication.id',Long.parseLong(params.publication))
+					}
+				}
+				if(params.country && params.country != "null")
+				{
+					eq ('country.id',Long.parseLong(params.country))
+				}
+				if(params.accountStatus)
+				{
+					eq ('accountStatus',Integer.parseInt(params.accountStatus))
+				}
+				if(params.role && params.role != "null")
+				{
+					roles {
+						eq ('id',Long.parseLong(params.role))
+					}
+				}
+			}
+
+			
+			def userList = User.createCriteria().list(){
+				'in'("id",userListIds)
+			}
 			response.contentType = ConfigurationHolder.config.grails.mime.types[params.format]
-			response.setHeader("Content-disposition", "attachment; filename=users.${params.format}")
+			response.setHeader("Content-disposition", "attachment; filename=users.${params.format=='excel'?'xls':params.format}")
 			List fields =  new ArrayList<String>(User.getDisplayColumns().keySet())
 			Map labels = User.getDisplayColumns()
 			
 			Map parameters = [title: 'Filtered Users List']
 			
 			exportService.export(params.format, response.outputStream , userList, fields, labels, [:], parameters)
+			
 		}
 		else
 		{
-			def userInstanceTotal = User.createCriteria().get{
-				projections {
-					rowCount()
+			def userList = User.createCriteria().list(params){
+				
+				projections { 
+					distinct ('id') 
 				}
+				if(params.userName  && params.userName != "")
+				{
+					like ('userName','%'+params.userName+'%')
+				}
+				if(params.lastName  && params.lastName != "")
+				{
+					like ('lastName','%'+params.lastName+'%')
+				}
+				if(params.firstName  && params.firstName != "")
+				{
+					like ('firstName','%'+params.firstName+'%')
+				}
+				if(params.jobFunction  && params.jobFunction != "null")
+				{
+					eq ('jobFunction.id',Long.parseLong(params.jobFunction))
+				}
+				if(params.jobPosition && params.jobPosition != "null")
+				{
+					eq ('jobPosition.id',Long.parseLong(params.jobPosition))
+				}
+				if(params.publication && params.publication != "null")
+				{
+					subscriptions{
+						eq ('publication.id',Long.parseLong(params.publication))
+					}
+				}
+				if(params.country && params.country != "null")
+				{
+					eq ('country.id',Long.parseLong(params.country))
+				}
+				if(params.accountStatus)
+				{
+					eq ('accountStatus',Integer.parseInt(params.accountStatus))
+				}
+				if(params.role && params.role != "null")
+				{
+					roles {
+						eq ('id',Long.parseLong(params.role))
+					}
+				}
+			}
+			def userInstanceTotal = User.createCriteria().list(){
+				projections { distinct ( "id" ) }
 				if(params.userName)
 				{
 					like ('userName','%'+params.userName+'%')
@@ -111,21 +162,21 @@ class UserController {
 				{
 					like ('firstName','%'+params.firstName+'%')
 				}
-				if(params.jobFunction != "null")
+				if(params.jobFunction  && params.jobFunction != "null")
 				{
 					eq ('jobFunction.id',Long.parseLong(params.jobFunction))
 				}
-				if(params.jobPosition != "null")
+				if(params.jobPosition && params.jobPosition != "null")
 				{
 					eq ('jobPosition.id',Long.parseLong(params.jobPosition))
 				}
-				if(params.publication != "null")
+				if(params.publication && params.publication != "null")
 				{
 					subscriptions{
 						eq ('publication.id',Long.parseLong(params.publication))
 					}
 				}
-				if(params.country != "null")
+				if(params.country && params.country != "null")
 				{
 					eq ('country.id',Long.parseLong(params.country))
 				}
@@ -133,14 +184,14 @@ class UserController {
 				{
 					eq ('accountStatus',Integer.parseInt(params.accountStatus))
 				}
-				if(params.role != "null")
+				if(params.role && params.role != "null")
 				{
 					roles {
 						eq ('id',Long.parseLong(params.role))
 					}
-				}
-				
+				}			
 			}
+			userInstanceTotal = userInstanceTotal.size()
 			return [userInstanceList: userList, userInstanceTotal: userInstanceTotal,params:params]
 		}
     }
