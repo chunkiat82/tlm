@@ -76,7 +76,11 @@ MyDesktop.PublicationWindow = Ext.extend(Ext.app.Module, {
 	              generatePublicationPanel(pubObj);	              
 	              var taskInner =  new Ext.util.DelayedTask(function(){
 	            	  Ext.get('twoDivsOnly').scroll('down',350,true);
-	            	  generatePublicationLinksHtml(pubId);   
+	            	  
+	            	  //TODO : REMOVE hardcode 
+	            	  if (pubId<8){
+	            		  generatePublicationLinksHtml(pubId);
+	            	  }
 	            	 
 	            	  new Ext.util.DelayedTask(function(){
 	            		  var returnDiv = Ext.get('returnDiv');
@@ -112,7 +116,7 @@ function generatePublicationLinksHtml(pubId)
      var downloadLatestLink = '<a href="#" onclick="window.location.href=\''+urlPath+'response/latestZip/'+pubId+'\'"><img src="images/buttons/buttons-download-zip.png"></a>'
      var downloadDialogLink = '<a href="#" onclick="openDownloads('+pubId+')"><img src="images/buttons/buttons-download-pdf.png"></a>'
      var downloadMediaKitLink = '<a href="#" onclick="window.location.href=\''+urlPath+'response/mediaKit/'+pubId+'\'"><img src="images/buttons/buttons-download-mk.png"></a>'
-     
+         
      temp.update('<div id="publicationLinksInnerDiv">'+downloadLatestLink+downloadDialogLink+downloadMediaKitLink+'</div>');
      temp.show(true);
 }

@@ -77,11 +77,11 @@ Ext.onReady(function() {
 					}
 				}
 			}, {
-				text : 'Landscape Today',
+				text : 'Light Audio-Visual Asia',
 				iconCls : 'lstIcon',
 				listeners : {
 					click : function() {
-						openPublications(3);
+						openPublications(8);
 					}
 				}
 			} ]
@@ -142,11 +142,11 @@ Ext.onReady(function() {
 					}
 				}
 			}, {
-				text : 'Landscape Today',
+				text : 'Light Audio-Visual Asia',
 				iconCls : 'lstIcon',
 				listeners : {
 					click : function() {
-						openDownloads(3);
+						openDownloads(8);
 					}
 				}
 			} ]

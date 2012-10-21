@@ -273,7 +273,7 @@ function getRegistrationWindow()
         xtype: 'checkboxgroup',
         fieldLabel: 'Subscriptions',
         itemCls: 'x-check-group-alt',
-        columns: 3,
+        columns: 2,
         
         // checkbox items
         items: generatePublicationCheckboxes()

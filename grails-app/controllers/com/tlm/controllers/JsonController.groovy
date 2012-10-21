@@ -13,7 +13,7 @@ class JsonController {
 	def publicationList = {
 		response.setHeader("Cache-Control", "no-store")		
 		JSON.use("deep"){
-			render(contentType: "application/json", text:Publication.list() as JSON)			
+			render(contentType: "application/json", text:Publication.list(sort:'pubId') as JSON)			
 		}
 	}
 	def publication = {
