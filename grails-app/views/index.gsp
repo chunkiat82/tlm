@@ -130,9 +130,9 @@
 							title="Bathroom + Kitchen Today"
 							href="javascript:openPublications(1);" /> 
 							<img class="item"
-							src="response/issueThumbnailByPubId/2"
-							title="Concrete Technology Today"
-							href="javascript:openPublications(2);" /> 
+							src="response/issueThumbnailByPubId/8"
+							title="Lava"
+							href="javascript:openPublications(8);" /> 
 							<img class="item" 
 							src="response/issueThumbnailByPubId/4"
 							title="Lighting Today" 

@@ -61,14 +61,6 @@ Ext.onReady(function() {
 					}
 				}
 			}, {
-				text : 'Concrete Technology Today',
-				iconCls : 'cttIcon',
-				listeners : {
-					click : function() {
-						openPublications(2);
-					}
-				}
-			}, {
 				text : 'Lighting Today',
 				iconCls : 'ltIcon',
 				listeners : {
