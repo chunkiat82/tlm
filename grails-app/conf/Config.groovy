@@ -96,7 +96,7 @@ log4j = {
 
 grails {
 	mail {
-		host = "soho.sg"
+		host = "sporemail.com"
 		// port = 465
 		port = 25
 		username = "tlm@sporemail.com"
