@@ -77,10 +77,7 @@ MyDesktop.PublicationWindow = Ext.extend(Ext.app.Module, {
 	              var taskInner =  new Ext.util.DelayedTask(function(){
 	            	  Ext.get('twoDivsOnly').scroll('down',350,true);
 	            	  
-	            	  //TODO : REMOVE hardcode 
-	            	  if (pubId<8){
-	            		  generatePublicationLinksHtml(pubId);
-	            	  }
+	            	  generatePublicationLinksHtml(pubId);
 	            	 
 	            	  new Ext.util.DelayedTask(function(){
 	            		  var returnDiv = Ext.get('returnDiv');

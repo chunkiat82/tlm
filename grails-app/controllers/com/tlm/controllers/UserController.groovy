@@ -102,7 +102,49 @@ class UserController {
 		}
 		else
 		{
-			def userList = User.createCriteria().list(params){
+	
+			String query = "from User as b where 1=1 " ;
+			
+			if(params.userName  && params.userName != "")
+			{
+				query+="and b.userName like '%"+params.userName +"%' "
+			}
+			if(params.lastName  && params.lastName != "")
+			{
+				query+="and b.lastName like '%"+params.lastName+"%' "
+			}
+			if(params.firstName  && params.firstName != "")
+			{
+				query+="and b.firstName like '%"+params.firstName+"%' "
+			}
+			if(params.jobFunction  && params.jobFunction != "null")
+			{
+				query+="and b.jobFunction.id = "+Long.parseLong(params.jobFunction)+" "
+			}
+			if(params.jobPosition && params.jobPosition != "null")
+			{
+				query+="and b.jobPosition.id = "+Long.parseLong(params.jobPosition)+" "
+			}
+			if(params.country && params.country != "null")
+			{
+				query+="and b.country.id =  "+Long.parseLong(params.country)+" "
+			}
+			if(params.accountStatus)
+			{
+				query+="and b.accountStatus = "+Long.parseLong(params.accountStatus)+" "
+			}
+			if(params.role && params.role != "null")
+			{
+				query+="and  exists (from b.roles AS rl where rl.id IN ("+params.role+")) "
+			}
+			if(params.publication && params.publication != "null")
+			{
+				query+="and exists (from b.subscriptions AS sub where sub.publication.id IN ("+Long.parseLong(params.publication)+") and subscription_status='A') "
+			}
+			def userList = User.findAll(query,[max: params.max, offset:params.offset?Long.parseLong(params.offset):0])
+			def userInstanceTotal = User.executeQuery("select count(*) "+query)		
+			userInstanceTotal=userInstanceTotal[0]
+			/*def ss = User.createCriteria().list(params){
 				
 				projections { 
 					distinct ('id') 
@@ -191,7 +233,8 @@ class UserController {
 					}
 				}			
 			}
-			userInstanceTotal = userInstanceTotal.size()
+			userInstanceTotal = userInstanceTotal.size()			
+			*/
 			return [userInstanceList: userList, userInstanceTotal: userInstanceTotal,params:params]
 		}
     }
